@@ -1,6 +1,12 @@
 /** @format */
 import React, { Component } from 'react'
-import { ListView, View, Text, StyleSheet } from 'react-native'
+import {
+	ListView,
+	View,
+	Text,
+	StyleSheet,
+	TouchableHighlight
+} from 'react-native'
 // import App from './App';
 // import {name as appName} from './app.json';
 
@@ -25,11 +31,18 @@ export default class Component5 extends Component {
 				})
 			})
 	}
+	onPress(user) {
+		this.props.navigator.push({
+			id: 'component6'
+		})
+	}
 	renderRow(user, sectionId, rowId, highlightRow) {
 		return (
-			<View style={styles.row}>
-				<Text style={styles.rowText}>{user.name}</Text>
-			</View>
+			<TouchableHighlight onPress={() => this.onPress(user)}>
+				<View style={styles.row}>
+					<Text style={styles.rowText}>{user.name}</Text>
+				</View>
+			</TouchableHighlight>
 		)
 	}
 
